@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import PageWithLayoutType from '../../types/pageWithLayoutType';
 import MainLayout from '../../components/layouts/Main';
@@ -31,6 +31,33 @@ const Login: FC = () => {
       setFormStatus(`Error Occured: ${e.message}`);
     }
   }
+
+  useEffect(() => {
+    let list = document.querySelectorAll('.form-input');
+
+    list.forEach(function(task, index) {
+      const input = task.querySelector('input'),
+            textarea = task.querySelector('textarea'),
+            activeClass = 'active';
+      
+      let inputItem: any = undefined;
+
+      if (input) inputItem = input;
+      if (textarea) inputItem = textarea;
+
+      if (inputItem) {
+        inputItem.addEventListener('focus', function () {
+          task.classList.add(activeClass)
+        });
+        
+        inputItem.addEventListener('blur', function () {
+          if (inputItem.value === '') {
+            task.classList.remove(activeClass);
+          }
+        });
+      }
+    })        
+  }, [])
 
   const { data: session, status } = useSession();
   const router = useRouter();

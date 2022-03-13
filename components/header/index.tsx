@@ -22,11 +22,6 @@ const Header = ({ children }: any) => {
             </a>
           </Link>
           <ul>
-            <li className={router.asPath === "/" ? "active" : ""}>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </li>
             <li className={router.asPath === "/about" ? "active" : ""}>
               <Link href="/about">
                 <a>About</a>
@@ -35,6 +30,11 @@ const Header = ({ children }: any) => {
             <li className={router.asPath === "/contents" ? "active" : ""}>
               <Link href="/contents">
                 <a>Contents</a>
+              </Link>
+            </li>
+            <li className={router.asPath === "/contact-us" ? "active" : ""}>
+              <Link href="/contact_us">
+                <a>Contact Us</a>
               </Link>
             </li>
           </ul>
