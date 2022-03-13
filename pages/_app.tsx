@@ -8,6 +8,7 @@ import { GlobalStyles } from '../styles/globalStyles'
 import { useDarkMode } from '../utils/customHooks/useDarkMode'
 import ToggleThemeBtn from '../components/toggleThemeBtn/index'
 import Header from '../components/header/index'
+import AuthWrapper from '../components/auth/AuthWrapper'
 
 type AppLayoutProps = {
   Component: PageWithLayoutType;
@@ -27,15 +28,17 @@ function MyApp({ Component, pageProps }: AppLayoutProps) {
 
   return (
     <SessionProvider session={pageProps.session}>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyles />
-        <Layout>
-          <Header>
-            <ToggleThemeBtn theme={theme} toggleTheme={toggleTheme} />
-          </Header>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <AuthWrapper>
+        <ThemeProvider theme={themeMode}>
+          <GlobalStyles />
+          <Layout>
+            <Header>
+              <ToggleThemeBtn theme={theme} toggleTheme={toggleTheme} />
+            </Header>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </AuthWrapper>
   </SessionProvider>
 )
 }
