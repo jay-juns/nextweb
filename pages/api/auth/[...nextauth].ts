@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaClient } from "@prisma/client";
+import { verifyPassword } from '../../../types/auth'
 
+
+let prisma = new PrismaClient();
 
 export default NextAuth({
     providers: [
@@ -12,23 +16,32 @@ export default NextAuth({
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
+                email: { label: "Username", type: "text", placeholder: "test@email.com" },
                 password: { label: "Password", type: "password" }
             },
-            async authorize(credentials, req) {
-                // Add logic here to look up the user from the credentials supplied
-                const user = { id: 1, name: "J Smith", email: "jsmith@example.com" }
+            async authorize(credentials) {
+                const user = await prisma.user.findUnique({
+                    where: {
+                        email: String(credentials?.email),
+                    },
+                    select: {
+                        name: true, email: true, password: true
+                    },
+                });
 
-                if (user) {
-                    // Any object returned will be saved in `user` property of the JWT
-                    return user
-                } else {
-                    // If you return null or false then the credentials will be rejected
-                    return null
-                    // You can also Reject this callback with an Error or with a URL:
-                    // throw new Error("error message") // Redirect to error page
-                    // throw "/path/to/redirect"        // Redirect to a URL
+                if (!user) {
+                    throw new Error('No user found!');
                 }
+
+                const isValid = await verifyPassword(
+                    String(credentials?.password),
+                    user.password
+                );
+
+                if (!isValid) {
+                    throw new Error('Could not log you in!');
+                }
+                return { name: user.name, email: user.email };
             }
         })
     ],

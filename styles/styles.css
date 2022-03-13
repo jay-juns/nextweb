@@ -191,6 +191,9 @@ a:hover, a:active {
 .right-nav > span:last-child {
   margin-right: 0;
 }
+.sign-out--btn {
+  margin-left: 20px;
+}
 .footer {
   width: 100%;
 }

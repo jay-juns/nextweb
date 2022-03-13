@@ -43,7 +43,12 @@ const Header = ({ children }: any) => {
               {status === 'authenticated' ?
               (
                 <div>
-                  <button onClick={()=> signOut()}>Log out</button>
+                  <span className={router.asPath === "/dashboard" ? "active" : ""}>
+                    <Link href="/dashboard">
+                    {session?.user?.name}
+                    </Link>
+                  </span>
+                  <button className="btn sign-out--btn" onClick={()=> signOut()}>Log out</button>
                 </div>
               ) 
               : 
