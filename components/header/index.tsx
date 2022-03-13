@@ -32,7 +32,7 @@ const Header = ({ children }: any) => {
                 <a>Contents</a>
               </Link>
             </li>
-            <li className={router.asPath === "/contact-us" ? "active" : ""}>
+            <li className={router.asPath === "/contact_us" ? "active" : ""}>
               <Link href="/contact_us">
                 <a>Contact Us</a>
               </Link>
