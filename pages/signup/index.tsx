@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useRef, useState, useEffect } from 'react'
 import Head from 'next/head'
 import PageWithLayoutType from '../../types/pageWithLayoutType';
 import MainLayout from '../../components/layouts/Main';
@@ -59,6 +59,35 @@ const Signup: FC = (props) => {
     }
   }
 
+  useEffect(() => {
+    let list = document.querySelectorAll('.form-input');
+
+    list.forEach(function(task, index) {
+      const input = task.querySelector('input'),
+            textarea = task.querySelector('textarea'),
+            activeClass = 'active';
+      
+      let inputItem: any = undefined;
+
+      if (input) inputItem = input;
+      if (textarea) inputItem = textarea;
+
+      if (inputItem) {
+        inputItem.addEventListener('focus', function () {
+          task.classList.add(activeClass)
+        });
+        
+        inputItem.addEventListener('blur', function () {
+          if (inputItem.value === '') {
+            task.classList.remove(activeClass);
+          }
+        });
+      }
+    })
+    
+          
+  }, [])
+
   if(status === "authenticated") {
     router.replace("/")
     return (
@@ -77,39 +106,39 @@ const Signup: FC = (props) => {
       <form 
         onSubmit={submitHandler}
       >
-        <div>
+        <div className='form-input small'>
           <label htmlFor="name">
             name
           </label>
           <input
             id="name"
             type="text"
-            placeholder="name"
             required
+            autoComplete='false'
             ref={nameInputRef}
           />
         </div>
-        <div>
+        <div className='form-input small'>
           <label htmlFor="email">
             email
           </label>
           <input
             id="email"
             type="text"
-            placeholder="email"
             required
+            autoComplete='false'
             ref={emailInputRef}
           />
         </div>
-        <div>
+        <div className='form-input small'>
           <label htmlFor="password">
              password
           </label>
           <input
             id="password"
             type="password"
-            placeholder="password"
             required
+            autoComplete='false'
             ref={passwordInputRef}
           />
         </div>

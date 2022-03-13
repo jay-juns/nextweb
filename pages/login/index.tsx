@@ -57,26 +57,24 @@ const Login: FC = () => {
       <div>
         <div>
           <form onSubmit={submitHandler}>
-            <div>
+            <div className='form-input small'>
               <label htmlFor="email">
                 Email
               </label>
               <input 
                 id="email"
                 type="text" 
-                placeholder="Email"
                 required
                 ref={emailInputRef}  
               />
             </div>
-            <div>
+            <div className='form-input small'>
               <label htmlFor="password">
                  Password
               </label>
               <input 
                 id="password"
                 type="password" 
-                placeholder="Password"
                 required
                 ref={passwordInputRef}  
               />

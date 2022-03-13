@@ -43,7 +43,17 @@ select {
      -moz-appearance: none;
           appearance: none;
 }
-
+input[type=password], input[type=text], select, textarea {
+  background-color: #fff;
+  border: 1px solid #dedeea;
+  color: #3e3f5e;
+  transition: border-color .2s ease-in-out;
+}
+label {
+  display: block;
+  margin: 0;
+  line-height: 1em;
+}
 /* IE 에서 Select box 화살표 제거 */ 
 select::-ms-expand { display: none; }
 button {
@@ -211,4 +221,31 @@ a:hover, a:active {
 }
 .main-contents__wrapper {
   padding:0 15px 72px;
+}
+
+/* from input */
+.form-input {
+  position: relative;
+}
+.form-input label {
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #333;
+  transition: all .3s ease-in-out;
+  pointer-events: none;
+}
+.form-input.small input {
+  height: 48px;
+}
+.form-input.small label {
+  top: 16px;
+}
+.form-input.active label {
+  padding: 0 6px;
+  font-size: .75rem;
+  top: -6px;
+  left: 12px;
 }
