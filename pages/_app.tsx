@@ -1,8 +1,43 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import React from 'react'
+import '../styles/styles.css'
+import PageWithLayoutType from '../types/pageWithLayoutType'
+import { ThemeProvider } from 'styled-components'
+import { SessionProvider } from "next-auth/react"
+import { lightTheme, darkTheme } from '../styles/Theme'
+import { GlobalStyles } from '../styles/globalStyles'
+import { useDarkMode } from '../utils/customHooks/useDarkMode'
+import ToggleThemeBtn from '../components/toggleThemeBtn/index'
+import Header from '../components/header/index'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+type AppLayoutProps = {
+  Component: PageWithLayoutType;
+  pageProps: any;
+}
+
+function MyApp({ Component, pageProps }: AppLayoutProps) {
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const Layout = Component.layout || ((children) => <>
+    {children}
+  </>);
+
+  if (!componentMounted) {
+    return <div />
+  }
+
+  return (
+    <SessionProvider session={pageProps.session}>
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+        <Layout>
+          <Header>
+            <ToggleThemeBtn theme={theme} toggleTheme={toggleTheme} />
+          </Header>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+  </SessionProvider>
+)
 }
 
 export default MyApp

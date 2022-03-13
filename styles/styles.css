@@ -1,0 +1,211 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* input 기본 스타일 초기화 */
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* IE10 이상에서 input box 에 추가된 지우기 버튼 제거 */
+input::-ms-clear { display: none; }
+
+/* input type number 에서 화살표 제거 */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+/* Select box 스타일 초기화 */ 
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* IE 에서 Select box 화살표 제거 */ 
+select::-ms-expand { display: none; }
+button {
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+p {
+  margin:0;
+  padding:0;
+}
+a {
+  text-decoration: none;
+  outline: none;
+  color: transparent;
+}
+a:hover, a:active {
+  text-decoration: none;
+}
+.app__wrapper {
+  padding-top: 64px;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 102;
+}
+.overlay.none {
+  background-color: transparent
+}
+.modal-container {
+  visibility: hidden;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90%;
+  min-height: 400px;
+  z-index: 103;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border-radius: 20px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  transition: all 0.3s ease-out;
+}
+.modal-container.active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-container.in {
+  animation: zoomIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.modal-container.none-bg {
+  background-color: transparent;
+}
+.modal-container > img {
+  width: 100%;
+}
+.modal-close__btn-wrapper {
+  position: absolute;
+  right: 10px;
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: all ease-in .3s;
+}
+.modal-close__btn-wrapper:hover {
+  color: rgba(0, 0, 0, 1);
+}
+.toggle-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-btn > svg {
+  position:absolute;
+  font-size: 24px;
+  transform: translateY(0);
+  transition: all ease-in-out .3s;
+}
+.toggle-btn > svg.sun {
+  transform: translateY(-100px);
+}
+.toggle-btn > svg.moon {
+  transform: translateY(-100px);
+}
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  transition: .3s ease-in-out all;
+}
+.header-nav {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+.home-logo-image {
+  width: 80px;
+  margin: 0 20px 0 0;
+}
+.home-logo-image > img {
+  width: 100%;
+}
+.left-nav > ul {
+  display: flex;
+}
+.left-nav > ul > li {
+  margin-right: 20px;
+}
+.left-nav > ul > li:last-child {
+  margin-right: 0;
+}
+.right-nav {
+  margin-right: 80px;
+  display: flex;
+  align-items: center;
+}
+.right-nav > span {
+  margin-right: 20px;
+}
+.right-nav > span:last-child {
+  margin-right: 0;
+}
+.footer {
+  width: 100%;
+}
+.footer__wrapper {
+  max-width: 1296px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 37px 15px 48px;
+}
+
+.main-container {
+  max-width: 1296px;
+  width: 100%;
+  margin: 0 auto;
+}
+.main-contents__wrapper {
+  padding:0 15px 72px;
+}
