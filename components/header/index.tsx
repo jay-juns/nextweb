@@ -1,10 +1,12 @@
 import Link from "next/link"
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = ({ children }: any) => {
   const router = useRouter();
   const theme = localStorage.getItem('theme');
-
+  const { data: session, status } = useSession();
+  console.log(session, 'session')
   
   return (
     <header className="header">
@@ -38,17 +40,27 @@ const Header = ({ children }: any) => {
           </ul>
         </div>
         <div className="right-nav">
-
-              <span className={router.asPath === "/login" ? "active" : ""}>
-                <Link href="/login">
-                  Log In
-                </Link>
-              </span>
-              <span className={router.asPath === "/signup" ? "active" : ""}>
-                <Link href="/signup">
-                  Sign Up
-                </Link>
-              </span>
+              {status === 'authenticated' ?
+              (
+                <div>
+                  <button onClick={()=> signOut()}>Log out</button>
+                </div>
+              ) 
+              : 
+              (
+                <>
+                  <span className={router.asPath === "/login" ? "active" : ""}>
+                    <Link href="/login">
+                      Log In
+                    </Link>
+                  </span>
+                  <span className={router.asPath === "/signup" ? "active" : ""}>
+                    <Link href="/signup">
+                      Sign Up
+                    </Link>
+                  </span>
+                </>
+              )}
           {children && children}
         </div>
       </nav>
