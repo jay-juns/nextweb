@@ -1,11 +1,15 @@
 import { useMemo } from 'react';
 import styled from 'styled-components';
 import Slider, { Settings } from 'react-slick'
+import MainNextArrow from './MainNextArrow';
+import MainPrevArrow from './MainPrevArrow';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const SlideWrapper = styled.section`
   position: relative;
+  width: 100%;
+  margin:0;
 `;
 
 interface sliderProps {
@@ -19,6 +23,10 @@ interface sliderProps {
   speed?: number;
   /** 반복 여부 */
   loop?: boolean;
+  /** 다음 화살표 */
+  nextArrow?: any
+  /** 이전 화살표 */
+  prevArrow?: any
 }
 
 const MainSlider = ({
@@ -27,6 +35,8 @@ const MainSlider = ({
   autoplay = true,
   speed = 300,
   loop = true,
+  nextArrow,
+  prevArrow
 }: sliderProps) => {
   const settings = useMemo<Settings>(
     () => ({
@@ -36,6 +46,8 @@ const MainSlider = ({
       slidesToShow: 1,
       autoplay: Boolean(autoplay),
       autoplaySpeed: typeof autoplay === 'boolean' ? 3000 : autoplay,
+      nextArrow: <MainNextArrow />,
+      prevArrow: <MainPrevArrow />
     }),
     [autoplay, loop, speed],
   );
