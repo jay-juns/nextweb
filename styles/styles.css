@@ -20,6 +20,9 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+.btn {
+  cursor: pointer;
+}
 /* input 기본 스타일 초기화 */
 input {
   -webkit-appearance: none;
@@ -271,4 +274,22 @@ a:hover, a:active {
 }
 .prev-arrow {
   left: 0;
+}
+.mobile-nav-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.mobile-nav-menu--btn {
+  width: 48px;
+  height: 48px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-nav-logo--area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }

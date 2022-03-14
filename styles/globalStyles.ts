@@ -25,4 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme } : {theme: any}) => theme.footerBg};
     border-top: 1px solid ${({ theme } : {theme: any}) => theme.borderColor};
   }
+  .slick-dots li.slick-active button:before {
+    color: ${({ theme } : {theme: any}) => theme.textActive};
+  }
+  .slick-dots li button:before {
+    color: ${({ theme } : {theme: any}) => theme.text};
+  }
 `;

@@ -11,6 +11,7 @@
   "dependencies": {
     "@iconify/react": "^3.1.4",
     "@prisma/client": "^3.10.0",
+    "@types/react-dom": "^17.0.13",
     "@types/react-slick": "^0.23.8",
     "@types/styled-components": "^5.1.24",
     "babel-plugin-styled-components": "^2.0.6",
