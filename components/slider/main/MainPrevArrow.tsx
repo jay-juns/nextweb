@@ -1,4 +1,5 @@
 import React from 'react'
+import { Icon } from '@iconify/react';
 
 interface PrevArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -6,7 +7,9 @@ interface PrevArrowProps {
 
 const MainPrevArrow = ({ onClick }: PrevArrowProps) => {
   return (
-    <div className='prev-arrow' onClick={onClick}>이전버튼</div>
+    <div className='prev-arrow' onClick={onClick}>
+      <Icon className="prev" icon="ooui:previous-ltr" />
+    </div>
   )
 }
 

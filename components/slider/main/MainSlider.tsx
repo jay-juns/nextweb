@@ -33,7 +33,7 @@ const MainSlider = ({
   children,
   className,
   autoplay = true,
-  speed = 300,
+  speed = 400,
   loop = true,
   nextArrow,
   prevArrow

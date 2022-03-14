@@ -249,3 +249,24 @@ a:hover, a:active {
   top: -6px;
   left: 12px;
 }
+.next-arrow,
+.prev-arrow {
+  position: absolute;
+  font-size: 50px;
+  top: 50%;
+  transform:translateY(-50%);
+  cursor: pointer;
+  z-index:1000;
+  opacity: 0.45;
+  transition: opacity .3s ease-in-out;
+}
+.next-arrow:hover,
+.prev-arrow:hover {
+  opacity: 1;
+}
+.next-arrow {
+  right: 0;
+}
+.prev-arrow {
+  left: 0;
+}
