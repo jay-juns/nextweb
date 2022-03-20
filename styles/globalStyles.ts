@@ -16,6 +16,9 @@ export const GlobalStyles = createGlobalStyle`
   button {
     color: ${({ theme } : {theme: any}) => theme.text};
   }
+  .header {
+    background-color: ${({ theme } : {theme: any}) => theme.textActiveOpp};
+  }
   .right-nav > span.active > a,
   .left-nav > ul > li.active > a {
     color: ${({ theme } : {theme: any}) => theme.textActive};
