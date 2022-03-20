@@ -45,7 +45,7 @@ const MainSlider = ({
       speed: speed,
       slidesToShow: 1,
       autoplay: Boolean(autoplay),
-      autoplaySpeed: typeof autoplay === 'boolean' ? 3000 : autoplay,
+      autoplaySpeed: typeof autoplay === 'boolean' ? 4000 : autoplay,
       nextArrow: <MainNextArrow />,
       prevArrow: <MainPrevArrow />
     }),

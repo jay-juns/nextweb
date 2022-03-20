@@ -15,7 +15,14 @@ const Home: NextPage = () => {
         <MainItems />
       </div>
       <section className='main-container'>
-        <div className='main-contents__wrapper'>main</div>
+        <div className='main-contents__wrapper'>
+          <div>
+            <p>title</p>
+            <div>
+
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   )
