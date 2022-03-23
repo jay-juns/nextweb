@@ -227,33 +227,6 @@ a:hover, a:active {
 .main-contents__wrapper {
   padding:0 15px 72px;
 }
-
-/* from input */
-.form-input {
-  position: relative;
-}
-.form-input label {
-  font-size: 15px;
-  font-weight: 600;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #333;
-  transition: all .3s ease-in-out;
-  pointer-events: none;
-}
-.form-input.small input {
-  height: 48px;
-}
-.form-input.small label {
-  top: 16px;
-}
-.form-input.active label {
-  padding: 0 6px;
-  font-size: .75rem;
-  top: -6px;
-  left: 12px;
-}
 .next-arrow,
 .prev-arrow {
   position: absolute;
@@ -292,4 +265,69 @@ a:hover, a:active {
   flex: 1;
   display: flex;
   justify-content: center;
+}
+.main-login-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-wrapper {
+  width: 460px;
+}
+.login-container {
+  width: 100%;
+  padding:0 0 60px;
+}
+.login-container > form {
+  width: 100%;
+}
+.login-container > form > input {
+  width: 100%;
+}
+/* from input */
+.form-input {
+  position: relative;
+}
+.form-input label {
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #333;
+  transition: all .3s ease-in-out;
+  pointer-events: none;
+}
+.form-input input {
+  width: 100%;
+  margin-top: 10px;
+}
+.form-input input:first-child {
+  margin-top: 0;
+}
+.form-input.small input {
+  height: 48px;
+}
+.form-input.small label {
+  top: 28px;
+}
+.form-input.active label {
+  padding: 0 6px;
+  font-size: .75rem;
+  top: 11px;
+  left: 12px;
+}
+.login-btn--wrapper {
+  width: 100%;
+  padding: 10px 0;
+}
+.login-btn--wrapper > button {
+  width: 100%;
+  height: 48px;
+  border-radius:5px;
+  font-size: 22px;
+  background-color: #383568;
+  color: #fff;
 }
