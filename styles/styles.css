@@ -171,6 +171,7 @@ a:hover, a:active {
   max-width: 1296px;
   height: 100%;
   margin: 0 auto;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -269,6 +270,7 @@ a:hover, a:active {
 .main-login-container {
   width: 100%;
   max-width: 1296px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -334,12 +336,18 @@ a:hover, a:active {
   color: #fff;
 }
 @media screen and (max-width: 1439px) {
-  .header-nav {
-    max-width: 960px;
-  }
+  .header-nav,
   .main-container,
   .main-login-container,
   .footer__wrapper {
     max-width: 960px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header-nav,
+  .main-container,
+  .main-login-container,
+  .footer__wrapper {
+    padding: 0 10px;
   }
 }
